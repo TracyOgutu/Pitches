@@ -10,10 +10,10 @@
 
 
 <div class="row">
-        <div class="card">
+        <div class="card" >
                 <div class="card-body text-center">
-                        <h4><a>{{pitch.title}}</a></h4>
-                        <h5 class="card-text text-center">{{pitch.description}}.</h5>
+                        <h4><a style="font-size: 40px;">{{pitch.title}}</a></h4>
+                        <h5 class="card-text text-center" style="font-size: 20px;">{{pitch.description}}.</h5>
                 </div>
         </div>
 
@@ -28,10 +28,10 @@
 
         <hr>
         <hr>
-        <div class="container">
-                <div class="col-md-12">
-                        <h4 style="color: brown; text-align: center;text-underline-position: below">Comments</h4>
-                        {{ macro.displayComments(comment) }}
+        <div class="container"style=" border:2px double rgb(26, 123, 214);border-radius: 15px 50px 30px 5px; margin-top: 20px;">
+                <div>
+                        <h4 style="color:rgb(26, 123, 214); text-align: center; font-size: 30px;">Comments</h4>
+                      <h4 style="font-size: 30px;">{{ macro.displayComments(comment) }}</h4>  
 
                 </div>
 
