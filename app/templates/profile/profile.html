@@ -1,5 +1,8 @@
-{% extends 'base.html'%}
+{% extends 'bootstrap/base.html' %}
 
+{% block navbar %}
+{% include 'navbar.html'%}
+{% endblock %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,6 +10,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
+
+{% block styles %}
+{{super()}}
+<link rel="stylesheet" href="{{url_for('static', filename='css/profile.css')}}">
+<link href="https://fonts.googleapis.com/css?family=Marck+Script&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Courgette&display=swap" rel="stylesheet">
+{% endblock %}
+
 </head>
 <body>
         {% block content %}
@@ -14,7 +25,7 @@
             <div class="row" style="font-size: 30px;">
                 <!-- displaying Username -->
                 <div class ="col-md-4">
-                    <h3 style="text-transform: uppercase;"><b>{{user.username}} PROFILE</b></h3>
+                    <h3 style="text-transform: uppercase; font-family: 'Courgette', cursive;"><b>{{user.username}} PROFILE</b></h3>
         
                 <!-- Displaying user bio -->
                 {%if user.bio%}
@@ -24,13 +35,13 @@
                 {%endif%}
                 
                 {% if user == current_user %}
-                <a href="{{url_for('main.update_profile',uname=user.username)}}">Edit profile</a>
+                <a style="font-family: 'Courgette', cursive;" href="{{url_for('main.update_profile',uname=user.username)}}">Edit profile</a>
                 {% endif %}
         
                 </div>
         
                 <!-- Displaying profile photo -->
-                <div class="col-md-4">
+                <div class="col-md-4"style="font-family: 'Courgette', cursive;" >
                     {%if user.profile_pic_path%}
                     <img src ="{{url_for('static',filename=user.profile_pic_path)}}" alt="" class ="img-thumbnail">
                     {%else%}
@@ -45,14 +56,20 @@
                     {%endif%}
                 
                 
+                </div><br><br>
+
+                <div class="row" style="font-family: 'Courgette', cursive;" >
+                    <div class="col-sm-6" style="border:2px double black;border-radius: 15px 50px 30px 5px; margin-top: 20px;">
+                            <h3 style="text-transform: uppercase;" class="card-title"><b>{{current_user.username}} PITCHES</b></h3>
+                            {%for pitch in pitcheslist%}
+                            <h3><i><b>Category: {{pitch.category}}</b></i></h3>
+                            <h3>Title: {{pitch.title}}</h3>
+                            <h3 class="card-text">Pitch: {{pitch.description}}</h3>
+                            {%endfor%}
+                    </div>
+                    
                 </div>
-        
-                <h3 style="text-transform: uppercase;"><b>{{current_user.username}} PITCHES</b></h3>
-                {%for pitch in pitcheslist%}
-                <h3><i><b>Category: {{pitch.category}}</b></i></h3>
-                <h3>Title: {{pitch.title}}</h3>
-                <h3>Pitch: {{pitch.description}}</h3>
-                {%endfor%}
+               
         
                 
             </div>

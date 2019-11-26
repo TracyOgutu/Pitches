@@ -1,5 +1,4 @@
 
-
 <div class="navbar navbar-expand-lg navbar-light bg-light" role="navigation">
     <div class="container-fluid">
         <div class="navbar-header">
@@ -9,11 +8,11 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="/" style="font-size: 100%;color:black;font-family: Georgia, 'Times New Roman', Times, serif;">Pitch Zone</a>
-            <a class="navbar-brand" href="/pitch/new" style="font-size: 100%;font-family: Georgia, 'Times New Roman', Times, serif;">Make pitch</a>
+            <a class="navbar-brand" href="/" style="font-size: 90%;color:black;">Pitch Zone</a>
+            <a class="navbar-brand" href="/pitch/new" style="font-size: 90%;">Make pitch</a>
         </div>
         <div class="navbar-collapse collapse">
-            <ul class="nav navbar-nav navbar-right" style="font-size: 100%;font-family: Georgia, 'Times New Roman', Times, serif;">
+            <ul class="nav navbar-nav navbar-right" style="font-size: 90%;">
                 {%if current_user.is_authenticated%}
                 <li><a style="color:black;">Current user: {{current_user.username}}</a></li>
                 <li><a style="color:black;"href="{{url_for('main.profile',uname=current_user.username)}}">Profile</a></li>

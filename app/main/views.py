@@ -107,7 +107,6 @@ def profile(uname):
 @login_required
 
 def update_profile(uname):
-    pitch=Pitch.query.get(pitch_id)
     user = User.query.filter_by(username = uname).first()
     if user is None:
         abort (404)
@@ -122,7 +121,7 @@ def update_profile(uname):
 
         return redirect(url_for('.profile',uname=user.username))
 
-    return render_template('profile/update.html',form=form,pitch=pitch)
+    return render_template('profile/update.html',form=form)
 
 @main.route('/user/<uname>/update/pic',methods= ['POST'])
 @login_required
